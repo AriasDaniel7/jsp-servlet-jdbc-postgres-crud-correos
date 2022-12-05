@@ -20,19 +20,19 @@ import modelo.correosDAO;
  *
  * @author Daniel Arias
  */
-@WebServlet(name = "insert", urlPatterns = {"/insert"})
-public class insert extends HttpServlet {
+@WebServlet(name = "delete", urlPatterns = {"/delete"})
+public class delete extends HttpServlet {
     private correosDAO correosDAO;
     
     @Override
     public void init() {
         correosDAO = new correosDAO();
     }
-
+    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        insertar(request, response);
+        eliminar(request, response);
     }
     
     @Override
@@ -46,13 +46,11 @@ public class insert extends HttpServlet {
         return "Short description";
     }
     
-    protected void insertar(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException { 
-        String correo = request.getParameter("correo");
-        String nombre = request.getParameter("nombre");
-        
-        correo cor = new correo(0, nombre, correo);
-        correosDAO.insertar(cor);
+    protected void eliminar(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        int id = Integer.parseInt(request.getParameter("id"));
+        correosDAO.eliminar(id);
         response.sendRedirect("principal");
     }
+    
 }

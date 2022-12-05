@@ -7,12 +7,12 @@ package server;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.swing.JOptionPane;
 import modelo.correo;
 import modelo.correosDAO;
 
@@ -20,19 +20,22 @@ import modelo.correosDAO;
  *
  * @author Daniel Arias
  */
-@WebServlet(name = "insert", urlPatterns = {"/insert"})
-public class insert extends HttpServlet {
+@WebServlet(name = "modify", urlPatterns = {"/modify"})
+public class modify extends HttpServlet {
     private correosDAO correosDAO;
     
     @Override
     public void init() {
         correosDAO = new correosDAO();
     }
-
+    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        insertar(request, response);
+        int id = Integer.parseInt(request.getParameter("id"));
+        correo correo = correosDAO.mostrarCorreo(id);
+        request.setAttribute("correo", correo);
+        modificar(request, response);
     }
     
     @Override
@@ -46,13 +49,9 @@ public class insert extends HttpServlet {
         return "Short description";
     }
     
-    protected void insertar(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException { 
-        String correo = request.getParameter("correo");
-        String nombre = request.getParameter("nombre");
-        
-        correo cor = new correo(0, nombre, correo);
-        correosDAO.insertar(cor);
-        response.sendRedirect("principal");
+    protected void modificar(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        RequestDispatcher dispatcher = request.getRequestDispatcher("modificar.jsp");
+        dispatcher.forward(request, response);
     }
 }

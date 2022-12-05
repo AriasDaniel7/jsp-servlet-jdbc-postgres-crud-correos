@@ -35,9 +35,6 @@
             <button type="button" id="btn-eliminar-datos" class="btn-form"><i class="fas fa-backspace"></i>&nbsp;Limpiar
                 datos</button>
 
-            <p id="p-mesanje-error"></p>
-            <p id="p-mensaje-confirmacion"></p>
-
         </form>
         <br>
         <div class="table-contenedor">
@@ -46,6 +43,8 @@
                 <thead>
                 <th>Nombre</th>
                 <th>Correo</th>
+                <th style="width: 15px;"></th>
+                <th style="width: 50px;"></th>
                 </thead>
                 <tbody>
                     <c:forEach var="correo" items="${lista}">
@@ -56,6 +55,13 @@
                             <td>
                                 <c:out value="${correo.correo}" />
                             </td>
+                            <td>
+                                <button type="submit"><a class="link" href="modify?id=<c:out value='${correo.id}' />">Modificar</a></button>
+                            </td>
+                            <td>
+                                <button type="submit"><a class="link" href="delete?id=<c:out value='${correo.id}' />">Eliminar</a></button>
+                            </td>
+
                         </tr>
                     </c:forEach>
                 </tbody>
@@ -63,5 +69,4 @@
         </div>
         <script src="https://kit.fontawesome.com/f24051bb43.js" crossorigin="anonymous"></script>
     </body>
-
 </html>

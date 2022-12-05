@@ -71,4 +71,85 @@ public class correosDAO {
             return false;
         }
     }
+    
+    public boolean eliminar(int _id){
+        PreparedStatement ps;
+        
+        try {
+            ps = conexion.prepareStatement("DELETE FROM usuarios WHERE cod=?");
+            ps.setInt(1,_id);
+            ps.execute();
+            
+            return true;
+        } catch (Exception e) {
+            System.out.println(e.toString());
+            return false;
+        }
+    }
+    
+    public correo mostrarCorreo(int _id){
+        PreparedStatement ps;
+        ResultSet rs;
+        correo cor = null;
+        
+        try {
+            ps = conexion.prepareStatement("SELECT cod,nombre,correo FROM usuarios WHERE cod=?");
+            ps.setInt(1, _id);
+            rs = ps.executeQuery();
+            
+            while(rs.next()){
+                int id = rs.getInt("cod");
+                String nombre = rs.getString("nombre").intern();
+                String correo = rs.getString("correo").intern();
+                
+                cor = new correo(id, nombre, correo);
+            }
+            return cor;
+        } catch (Exception e) {
+            System.out.println(e.toString());
+            return null;
+        }
+    }
+    
+    public int mostrarCorreo(String nom){
+        PreparedStatement ps;
+        ResultSet rs;
+        correo cor = null;
+        
+        try {
+            ps = conexion.prepareStatement("SELECT cod,nombre,correo FROM usuarios WHERE nombre=?");
+            ps.setString(1, nom);
+            rs = ps.executeQuery();
+            
+            while(rs.next()){
+                int id = rs.getInt("cod");
+                String nombre = rs.getString("nombre").intern();
+                String correo = rs.getString("correo").intern();
+                
+                cor = new correo(id, nombre, correo);
+            }
+            return cor.getId();
+        } catch (Exception e) {
+            System.out.println(e.toString());
+            return -1;
+        }
+    }
+    
+    public boolean actualizar(correo correo){
+        PreparedStatement ps;
+        
+        try {
+            ps = conexion.prepareStatement("UPDATE usuarios SET nombre=?,correo=? WHERE cod=?");
+            
+            ps.setString(1,correo.getNombre().intern());
+            ps.setString(2,correo.getCorreo().intern());
+            ps.setInt(3,correo.getId());
+            ps.execute();
+            
+            return true;
+        } catch (Exception e) {
+            System.out.println(e.toString());
+            return false;
+        }
+    }
 }

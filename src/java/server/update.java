@@ -7,12 +7,12 @@ package server;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.swing.JOptionPane;
 import modelo.correo;
 import modelo.correosDAO;
 
@@ -20,19 +20,19 @@ import modelo.correosDAO;
  *
  * @author Daniel Arias
  */
-@WebServlet(name = "insert", urlPatterns = {"/insert"})
-public class insert extends HttpServlet {
-    private correosDAO correosDAO;
+@WebServlet(name = "update", urlPatterns = {"/update"})
+public class update extends HttpServlet {
+private correosDAO correosDAO;
     
     @Override
     public void init() {
         correosDAO = new correosDAO();
     }
-
+    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        insertar(request, response);
+        actualizar(request, response);
     }
     
     @Override
@@ -46,13 +46,14 @@ public class insert extends HttpServlet {
         return "Short description";
     }
     
-    protected void insertar(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException { 
-        String correo = request.getParameter("correo");
+    protected void actualizar(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        int id = Integer.parseInt(request.getParameter("codigo"));
         String nombre = request.getParameter("nombre");
+        String correo = request.getParameter("correo");
         
-        correo cor = new correo(0, nombre, correo);
-        correosDAO.insertar(cor);
+        correo cor = new correo(id, nombre, correo);
+        correosDAO.actualizar(cor);
         response.sendRedirect("principal");
     }
 }
