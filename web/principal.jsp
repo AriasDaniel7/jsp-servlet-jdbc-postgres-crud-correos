@@ -32,8 +32,6 @@
             </div>
             <button type="submit" id="btn-enviar-datos" class="btn-form"><i class="fas fa-paper-plane"></i>&nbsp;Enviar
                 datos</button>
-            <button type="button" id="btn-eliminar-datos" class="btn-form"><i class="fas fa-backspace"></i>&nbsp;Limpiar
-                datos</button>
 
         </form>
         <br>

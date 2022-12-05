@@ -96,3 +96,13 @@ table tbody tr:nth-child(even){
     border-radius: 0.5em;
 }
 
+.parrafos{
+    color: black;
+    margin: 5px;
+    font-family:'Montserrat', sans-serif; 
+}
+
+.link_principal{
+    color: blue;
+}
+

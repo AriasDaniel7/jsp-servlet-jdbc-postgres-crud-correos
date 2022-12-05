@@ -24,13 +24,20 @@ import modelo.correosDAO;
  */
 @WebServlet(name = "principal", urlPatterns = {"/principal"})
 public class principal extends HttpServlet {
+    private correosDAO correosDAO;
+    private ArrayList<correo> listaCorreos;
+    
+    @Override
+    public void init() {
+        correosDAO = new correosDAO();
+        listaCorreos = new ArrayList<>();
+    }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        correosDAO correosDAO = new correosDAO();
         String accion = request.getServletPath();
-        ArrayList<correo> listaCorreos = correosDAO.listarProductos();
+        listaCorreos = correosDAO.listarProductos();
         request.setAttribute("lista", listaCorreos);
         principal(request, response);
     }
