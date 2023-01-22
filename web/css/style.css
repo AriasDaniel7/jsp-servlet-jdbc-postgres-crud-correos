@@ -75,8 +75,16 @@ table td{
 }
 
 .link{
-  text-decoration: none;
-  font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.link--eliminar{
+    color: red;
+}
+
+.link--modificar{
+    color: green;
 }
 
 table thead{

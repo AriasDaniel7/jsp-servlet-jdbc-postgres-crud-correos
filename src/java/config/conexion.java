@@ -11,9 +11,9 @@ import javax.swing.JOptionPane;
  */
 public class conexion {
     Connection conexion = null;
-    String url = "jdbc:postgresql://ec2-54-163-34-107.compute-1.amazonaws.com/dbi2k4cd2fl7gv";
-    String usuario = "qndzyzyjexawej";
-    String clave = "161c9ac2941f9b3d134376722e7517df301eb49831ec5019499643b65b4a7501";
+    String url = "jdbc:postgresql://dpg-cf6qu81gp3jnt5g4981g-a.oregon-postgres.render.com/correos";
+    String usuario = "correos_user";
+    String clave = "OIEsVEyeWFdHe6xV07MNEj3M9QYV72yM";
     Statement sentencia = null;
     
     public Connection getConexion(){

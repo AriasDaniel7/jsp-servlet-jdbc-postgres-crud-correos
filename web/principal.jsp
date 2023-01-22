@@ -54,10 +54,10 @@
                                 <c:out value="${correo.correo}" />
                             </td>
                             <td>
-                                <button type="submit"><a class="link" href="modify?id=<c:out value='${correo.id}' />">Modificar</a></button>
+                                <button type="submit"><a class="link link--modificar" href="modify?id=<c:out value='${correo.id}' />">Modificar</a></button>
                             </td>
                             <td>
-                                <button type="submit"><a class="link" href="delete?id=<c:out value='${correo.id}' />">Eliminar</a></button>
+                                <button type="submit"><a class="link link--eliminar" href="delete?id=<c:out value='${correo.id}' />">Eliminar</a></button>
                             </td>
 
                         </tr>

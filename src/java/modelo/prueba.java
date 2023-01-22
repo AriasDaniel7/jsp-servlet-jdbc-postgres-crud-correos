@@ -5,16 +5,15 @@
  */
 package modelo;
 
+import config.conexion;
+
 /**
  *
  * @author Daniel Arias
  */
 public class prueba {
-    public static void main(String[] args) {
-        correosDAO cor = new correosDAO();
-        int id = cor.mostrarCorreo("sss");
-        correo c = new correo(id, "rubert1","ssss");
-        System.out.println(cor.actualizar(c));
-        System.out.println(id);
+    public static void main(String[] args){
+        conexion c = new conexion();
+        c.getConexion();
     }
 }

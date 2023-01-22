@@ -11,6 +11,16 @@
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/Daniel%20Arias/Documents/NetBeansProjects/jsp-servlet-jdbc-postgres-crud-correos/src/java/config/conexion.java</file>
+            <file>file:/C:/Users/Daniel%20Arias/Documents/NetBeansProjects/jsp-servlet-jdbc-postgres-crud-correos/web/modificar.jsp</file>
+            <file>file:/C:/Users/Daniel%20Arias/Documents/NetBeansProjects/jsp-servlet-jdbc-postgres-crud-correos/web/principal.jsp</file>
+            <file>file:/C:/Users/Daniel%20Arias/Documents/NetBeansProjects/jsp-servlet-jdbc-postgres-crud-correos/src/java/server/principal.java</file>
+            <file>file:/C:/Users/Daniel%20Arias/Documents/NetBeansProjects/jsp-servlet-jdbc-postgres-crud-correos/src/java/modelo/correosDAO.java</file>
+            <file>file:/C:/Users/Daniel%20Arias/Documents/NetBeansProjects/jsp-servlet-jdbc-postgres-crud-correos/web/css/style.css</file>
+            <file>file:/C:/Users/Daniel%20Arias/Documents/NetBeansProjects/jsp-servlet-jdbc-postgres-crud-correos/web/index.html</file>
+            <file>file:/C:/Users/Daniel%20Arias/Documents/NetBeansProjects/jsp-servlet-jdbc-postgres-crud-correos/src/java/server/modify.java</file>
+            <file>file:/C:/Users/Daniel%20Arias/Documents/NetBeansProjects/jsp-servlet-jdbc-postgres-crud-correos/src/java/modelo/correo.java</file>
+        </group>
     </open-files>
 </project-private>
